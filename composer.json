@@ -1,5 +1,5 @@
 {
-    "name": "recombee/php-api-client",
+    "name": "ivanapostic/php-api-client",
     "description": "PHP client for easy use of the Recombee recommendation API.",
     "homepage": "https://recombee.com",
     "license": "MIT",
