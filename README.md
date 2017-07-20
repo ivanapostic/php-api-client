@@ -17,7 +17,7 @@ or
 ```
 {
     "require": {
-        "ivanapostic/php-api-client": "^1.3.2"
+        "ivanapostic/php-api-client": "dev-master"
     }
 }
 ```
