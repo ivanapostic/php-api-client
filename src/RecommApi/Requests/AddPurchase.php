@@ -36,6 +36,11 @@ class AddPurchase extends Request {
    protected $optional;
 
     /**
+     * @var string $context message|phone-click
+     */
+   protected $context;
+
+    /**
      * Construct the request
      * @param string $user_id User who purchased the item
      * @param string $item_id Purchased item
@@ -54,9 +59,10 @@ class AddPurchase extends Request {
         $this->item_id = $item_id;
         $this->timestamp = isset($optional['timestamp']) ? $optional['timestamp'] : null;
         $this->cascade_create = isset($optional['cascadeCreate']) ? $optional['cascadeCreate'] : null;
+        $this->context = isset($optional['context']) ? $optional['context'] : null;
         $this->optional = $optional;
 
-        $existing_optional = array('timestamp','cascadeCreate');
+        $existing_optional = array('timestamp','cascadeCreate','context');
         foreach ($this->optional as $key => $value) {
             if (!in_array($key, $existing_optional))
                  throw new UnknownOptionalParameterException($key);
@@ -102,8 +108,11 @@ class AddPurchase extends Request {
              $p['timestamp'] = $this-> optional['timestamp'];
         if (isset($this->optional['cascadeCreate']))
              $p['cascadeCreate'] = $this-> optional['cascadeCreate'];
+        if (isset($this->optional['context']))
+             $p['context'] = $this-> optional['context'];
         return $p;
     }
 
 }
 ?>
+

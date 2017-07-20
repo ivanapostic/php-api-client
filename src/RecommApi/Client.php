@@ -25,7 +25,7 @@ class Client{
     /**
      * @ignore
      */
-    const BASE_URI = 'rapi.recombee.com';
+    const BASE_URI = 'matej.lmc.cz';
 
     /**
      * @ignore
@@ -38,11 +38,11 @@ class Client{
      * @param string $token Secret token
      * @param string $protocol Default protocol for sending requests. Possible values: 'http', 'https'.
      */
-    public function __construct($account, $token, $protocol = 'http') {
+    public function __construct($account, $token, $base_uri, $protocol = 'http') {
         $this->account = $account;
         $this->token = $token;
         $this->protocol = $protocol;
-        $this->base_uri = Client::BASE_URI;
+        $this->base_uri = $base_uri;
         if(getenv("RAPI_URI") !== false)
             $this->base_uri = getenv("RAPI_URI");
     }
